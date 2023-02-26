@@ -26,41 +26,38 @@ export default function HomeScreen({ navigation }) {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.top}>
-        <Text style={styles.header}> D A I L Y     H O R O S C O P E</Text>
-      </View>
-      <View style={styles.menuContainer}>
-        {
-          horoscopes.map((element) => {
-            return (
-              <View style={styles.menuItem} key={element.id}>
-                <Pressable onPress={async () => {
-                  await getHoroscopeDaily(element.name_api);
-                  navigation.navigate('HoroscopeScreen', { item: element, info: infoHoroscope });
-                }} >
-                  <Image style={styles.image} source={element.image} />
-                  <Text style={styles.name}>{element.name}</Text>
-                </Pressable>
-              </View>
-            )
-          })
-        }
-      </View>
-    </ScrollView>
+      <ScrollView contentContainerStyle={styles.container} style={{ backgroundColor: '#FEEAE6' }} showsVerticalScrollIndicator={false} >
+        <View style={styles.top}>
+          <Text style={styles.header}>D A I L Y     H O R O S C O P E</Text>
+        </View>
+        <View style={styles.menuContainer}>
+          {
+            horoscopes.map((element) => {
+              return (
+                <View style={styles.menuItem} key={element.id}>
+                  <Pressable style={{ width: 80, justifyContent: 'center', alignItems: 'center' }} onPress={async () => {
+                    await getHoroscopeDaily(element.name_api);
+                    navigation.navigate('HoroscopeScreen', { item: element, info: infoHoroscope });
+                  }} >
+                    <Image style={styles.image} source={element.image} />
+                    <Text style={styles.name}>{element.name}</Text>
+                    <Text style={styles.dateRange}>{element.date_range}</Text>
+                  </Pressable>
+                </View>
+              )
+            })
+          }
+        </View>
+      </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#FEEAE6'
+    flexGrow: 1,
   },
   top: {
     marginTop: 30,
-    height: '15%',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -76,13 +73,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#FEDBD0'
   },
   menuContainer: {
-    height: 325,
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   menuItem: {
     width: '33.333333%',
-    height: '45%',
     padding: 27,
   },
   image: {
@@ -97,5 +92,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
     marginTop: 5
+  },
+  dateRange: {
+    color: '#442C2E',
+    justifyContent: 'center',
+    textAlign: 'center',
+    fontSize: 10,
+    marginTop: 0
   }
 });
