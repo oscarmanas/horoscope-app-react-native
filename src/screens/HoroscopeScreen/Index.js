@@ -4,7 +4,6 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 const HoroscopeScreen = ({ route }) => {
   
   const { item, info } = route.params;
-  console.log(info)
   
   return (
     <View style={styles.container}>
@@ -12,10 +11,10 @@ const HoroscopeScreen = ({ route }) => {
         <Image style={styles.image} source={item.image} />
         <View style={styles.containerTitle}>
           <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.date}>{info.date_range}</Text>
+          <Text style={styles.date}>{item.date_range}</Text>
         </View>
       </View>
-      <Text style={styles.description}>{info.description}</Text>
+      <Text style={styles.description}>{info.general}</Text>
     </View>
   );
 };
