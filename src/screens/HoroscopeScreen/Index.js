@@ -1,10 +1,9 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 const HoroscopeScreen = ({ route }) => {
-  
   const { item, info } = route.params;
-  
+
   return (
     <View style={styles.container}>
       <View style={styles.component}>
@@ -22,13 +21,13 @@ const HoroscopeScreen = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FEEAE6',
-    height: '100%',
-    width: '100%',
+    backgroundColor: "#FEEAE6",
+    height: "100%",
+    width: "100%",
   },
   component: {
-    flexDirection: 'row',
-    marginTop: 30
+    flexDirection: "row",
+    marginTop: 30,
   },
   image: {
     width: 80,
@@ -37,23 +36,22 @@ const styles = StyleSheet.create({
   },
   containerTitle: {
     marginLeft: 20,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   name: {
-    color: '#442C2E',
-    fontWeight: 'bold',
-    fontSize: 16
+    color: "#442C2E",
+    fontWeight: "bold",
+    fontSize: 16,
   },
   description: {
-    color: '#442C2E',
+    color: "#442C2E",
     marginLeft: 20,
     marginTop: 10,
     marginRight: 20,
-    textAlign: 'justify',
+    textAlign: "justify",
     lineHeight: 25,
-    fontSize: 16
+    fontSize: 16,
   },
-
-})
+});
 
 export default HoroscopeScreen;
